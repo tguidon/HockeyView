@@ -1,0 +1,6 @@
+framework module Pods_HockeyView {
+  umbrella header "Pods-HockeyView-umbrella.h"
+
+  export *
+  module * { export * }
+}

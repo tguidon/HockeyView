@@ -1,0 +1,388 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A4E79034CBFF666FC7A37AD9 /* Pods_HockeyView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4758638C1986852C367039C /* Pods_HockeyView.framework */; };
+		E81C33971E2D47950052DC0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81C33961E2D47950052DC0C /* AppDelegate.swift */; };
+		E81C33991E2D47950052DC0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81C33981E2D47950052DC0C /* ViewController.swift */; };
+		E81C339C1E2D47950052DC0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81C339A1E2D47950052DC0C /* Main.storyboard */; };
+		E81C339E1E2D47950052DC0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E81C339D1E2D47950052DC0C /* Assets.xcassets */; };
+		E81C33A11E2D47950052DC0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81C339F1E2D47950052DC0C /* LaunchScreen.storyboard */; };
+		E81C33A91E2D48AA0052DC0C /* RinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81C33A81E2D48AA0052DC0C /* RinkView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B4758638C1986852C367039C /* Pods_HockeyView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HockeyView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C82F5958556A77E08FF71562 /* Pods-HockeyView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HockeyView.release.xcconfig"; path = "Pods/Target Support Files/Pods-HockeyView/Pods-HockeyView.release.xcconfig"; sourceTree = "<group>"; };
+		E81C33931E2D47950052DC0C /* HockeyView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HockeyView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E81C33961E2D47950052DC0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E81C33981E2D47950052DC0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E81C339B1E2D47950052DC0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E81C339D1E2D47950052DC0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E81C33A01E2D47950052DC0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E81C33A21E2D47950052DC0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E81C33A81E2D48AA0052DC0C /* RinkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RinkView.swift; sourceTree = "<group>"; };
+		F9EB332DCC4D95E05273FC88 /* Pods-HockeyView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HockeyView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HockeyView/Pods-HockeyView.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E81C33901E2D47950052DC0C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4E79034CBFF666FC7A37AD9 /* Pods_HockeyView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3FFB544C4B48D976473F37BC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F9EB332DCC4D95E05273FC88 /* Pods-HockeyView.debug.xcconfig */,
+				C82F5958556A77E08FF71562 /* Pods-HockeyView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7F8D176424494932C527606C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4758638C1986852C367039C /* Pods_HockeyView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E81C338A1E2D47940052DC0C = {
+			isa = PBXGroup;
+			children = (
+				E81C33951E2D47950052DC0C /* HockeyView */,
+				E81C33941E2D47950052DC0C /* Products */,
+				3FFB544C4B48D976473F37BC /* Pods */,
+				7F8D176424494932C527606C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E81C33941E2D47950052DC0C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E81C33931E2D47950052DC0C /* HockeyView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E81C33951E2D47950052DC0C /* HockeyView */ = {
+			isa = PBXGroup;
+			children = (
+				E81C33961E2D47950052DC0C /* AppDelegate.swift */,
+				E81C33981E2D47950052DC0C /* ViewController.swift */,
+				E81C33A81E2D48AA0052DC0C /* RinkView.swift */,
+				E81C339A1E2D47950052DC0C /* Main.storyboard */,
+				E81C339D1E2D47950052DC0C /* Assets.xcassets */,
+				E81C339F1E2D47950052DC0C /* LaunchScreen.storyboard */,
+				E81C33A21E2D47950052DC0C /* Info.plist */,
+			);
+			path = HockeyView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E81C33921E2D47950052DC0C /* HockeyView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E81C33A51E2D47950052DC0C /* Build configuration list for PBXNativeTarget "HockeyView" */;
+			buildPhases = (
+				59E89BB4E22E48A19A11827D /* [CP] Check Pods Manifest.lock */,
+				E81C338F1E2D47950052DC0C /* Sources */,
+				E81C33901E2D47950052DC0C /* Frameworks */,
+				E81C33911E2D47950052DC0C /* Resources */,
+				795DA78E619DBD3C4FF146DF /* [CP] Embed Pods Frameworks */,
+				0016BD401D6E391DE399E117 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HockeyView;
+			productName = HockeyView;
+			productReference = E81C33931E2D47950052DC0C /* HockeyView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E81C338B1E2D47950052DC0C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Taylor Guidon";
+				TargetAttributes = {
+					E81C33921E2D47950052DC0C = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 4ZMW5MD4WT;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E81C338E1E2D47950052DC0C /* Build configuration list for PBXProject "HockeyView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E81C338A1E2D47940052DC0C;
+			productRefGroup = E81C33941E2D47950052DC0C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E81C33921E2D47950052DC0C /* HockeyView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E81C33911E2D47950052DC0C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E81C33A11E2D47950052DC0C /* LaunchScreen.storyboard in Resources */,
+				E81C339E1E2D47950052DC0C /* Assets.xcassets in Resources */,
+				E81C339C1E2D47950052DC0C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0016BD401D6E391DE399E117 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HockeyView/Pods-HockeyView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59E89BB4E22E48A19A11827D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		795DA78E619DBD3C4FF146DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HockeyView/Pods-HockeyView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E81C338F1E2D47950052DC0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E81C33A91E2D48AA0052DC0C /* RinkView.swift in Sources */,
+				E81C33991E2D47950052DC0C /* ViewController.swift in Sources */,
+				E81C33971E2D47950052DC0C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E81C339A1E2D47950052DC0C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E81C339B1E2D47950052DC0C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E81C339F1E2D47950052DC0C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E81C33A01E2D47950052DC0C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E81C33A31E2D47950052DC0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E81C33A41E2D47950052DC0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E81C33A61E2D47950052DC0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9EB332DCC4D95E05273FC88 /* Pods-HockeyView.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4ZMW5MD4WT;
+				INFOPLIST_FILE = HockeyView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.taylorguidon.HockeyView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E81C33A71E2D47950052DC0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C82F5958556A77E08FF71562 /* Pods-HockeyView.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4ZMW5MD4WT;
+				INFOPLIST_FILE = HockeyView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.taylorguidon.HockeyView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E81C338E1E2D47950052DC0C /* Build configuration list for PBXProject "HockeyView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E81C33A31E2D47950052DC0C /* Debug */,
+				E81C33A41E2D47950052DC0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E81C33A51E2D47950052DC0C /* Build configuration list for PBXNativeTarget "HockeyView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E81C33A61E2D47950052DC0C /* Debug */,
+				E81C33A71E2D47950052DC0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E81C338B1E2D47950052DC0C /* Project object */;
+}
