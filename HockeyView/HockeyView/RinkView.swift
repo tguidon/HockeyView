@@ -25,6 +25,10 @@ class RinkView: UIView {
     let homeBlueLine = UIView()
     let awayBlueLine = UIView()
     
+    // Creases
+    let homeCrease = UIView()
+    let awayCrease = UIView()
+    
     // Faceoff Circles
     let homeTopCircle = UIView()
     let homeBottomCircle = UIView()
@@ -78,6 +82,8 @@ class RinkView: UIView {
     var circleWidth: CGFloat = 1
     var dotWidth: CGFloat = 1
     var centerDotWidth: CGFloat = 1
+    var creaseWidth: CGFloat = 1
+    var creaseHeight: CGFloat = 1
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -91,44 +97,6 @@ class RinkView: UIView {
         
         setupConstants()
         drawRink()
-    }
-    
-    func setupConstants() {
-        rinkViewHeight = rinkViewWidth * (17 / 40)
-        
-        rinkCornerRatio = 28.0 / kRealRinkWidth
-        boardWidthRatio = 1.5 / kRealRinkWidth
-        
-//        var creaseWidthRatio: CGFloat = 8 / kRealRinkWidth
-        
-        let minorLineWidthRatio: CGFloat = 1.0 / kRealRinkWidth
-        let majorLineWidthRatio: CGFloat = 2.0 / kRealRinkWidth
-        minorLineWidth = rinkViewWidth * minorLineWidthRatio
-        majorLineWidth = rinkViewWidth * majorLineWidthRatio
-        
-        let goalLineOffsetRatio: CGFloat = 11 / kRealRinkWidth
-        goalLineOffset = rinkViewWidth * goalLineOffsetRatio
-        
-        let blueLineOffsetRatio: CGFloat = 64 / kRealRinkWidth
-        blueLineOffset = rinkViewWidth * blueLineOffsetRatio
-        
-        let neutralDotRatio: CGFloat = 5 / kRealRinkWidth
-        neutralDotOffset = rinkViewWidth * neutralDotRatio
-        
-        let circleSizeRatio: CGFloat = 30 / kRealRinkWidth
-        circleWidth = rinkViewWidth * circleSizeRatio
-        
-        let dotSizeRatio: CGFloat = 2.5 / kRealRinkWidth
-        dotWidth = rinkViewWidth * dotSizeRatio
-        
-        let centerDotSizeRatio: CGFloat = 1.5 / kRealRinkWidth
-        centerDotWidth = rinkViewWidth * centerDotSizeRatio
-        print(centerDotWidth)
-        
-        let faceoffCircleRatio: CGFloat = 22 / kRealRinkWidth
-        faceoffHorizontalOffset = rinkViewWidth * faceoffCircleRatio
-        let faceOffGapRatio: CGFloat = 44 / kRealRinkHeight
-        faceoffVerticalOffset = (rinkViewHeight * faceOffGapRatio) / 2
     }
     
     override func layoutSubviews() {
@@ -371,7 +339,45 @@ class RinkView: UIView {
         for dot in neutralZoneDots {
             dot.layer.cornerRadius = dotWidth / 2
         }
+    }
+    
+    func setupConstants() {
+        rinkViewHeight = rinkViewWidth * (17 / 40)
         
+        rinkCornerRatio = 28.0 / kRealRinkWidth
+        boardWidthRatio = 1.5 / kRealRinkWidth
         
+        let minorLineWidthRatio: CGFloat = 1.0 / kRealRinkWidth
+        let majorLineWidthRatio: CGFloat = 2.0 / kRealRinkWidth
+        minorLineWidth = rinkViewWidth * minorLineWidthRatio
+        majorLineWidth = rinkViewWidth * majorLineWidthRatio
+        
+        let goalLineOffsetRatio: CGFloat = 11 / kRealRinkWidth
+        goalLineOffset = rinkViewWidth * goalLineOffsetRatio
+        
+        let blueLineOffsetRatio: CGFloat = 64 / kRealRinkWidth
+        blueLineOffset = rinkViewWidth * blueLineOffsetRatio
+        
+        let neutralDotRatio: CGFloat = 5 / kRealRinkWidth
+        neutralDotOffset = rinkViewWidth * neutralDotRatio
+        
+        let circleSizeRatio: CGFloat = 30 / kRealRinkWidth
+        circleWidth = rinkViewWidth * circleSizeRatio
+        
+        let dotSizeRatio: CGFloat = 2.5 / kRealRinkWidth
+        dotWidth = rinkViewWidth * dotSizeRatio
+        
+        let centerDotSizeRatio: CGFloat = 1.5 / kRealRinkWidth
+        centerDotWidth = rinkViewWidth * centerDotSizeRatio
+        
+        let faceoffCircleRatio: CGFloat = 22 / kRealRinkWidth
+        let faceOffGapRatio: CGFloat = 44 / kRealRinkHeight
+        faceoffHorizontalOffset = rinkViewWidth * faceoffCircleRatio
+        faceoffVerticalOffset = (rinkViewHeight * faceOffGapRatio) / 2
+        
+        let creaseWidthRatio: CGFloat = 4 / kRealRinkWidth
+        let creaseHeightRatio: CGFloat = 8 / kRealRinkHeight
+        creaseWidth = rinkViewWidth * creaseWidthRatio
+        creaseHeight = rinkViewHeight * creaseHeightRatio
     }
 }
