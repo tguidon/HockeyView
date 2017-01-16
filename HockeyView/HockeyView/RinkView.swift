@@ -53,6 +53,7 @@ class RinkView: UIView {
     
     // VARS
     
+    let iceColor: UIColor = UIColor(red:0.85, green:0.91, blue:0.95, alpha:1.00)
     // Value must match the width of your view in Storyboard or in code
     let rinkViewWidth: CGFloat = 300.0
     // Set in setupConstants
@@ -96,11 +97,11 @@ class RinkView: UIView {
         rinkViewHeight = rinkViewWidth * (17 / 40)
         
         rinkCornerRatio = 28.0 / kRealRinkWidth
-        boardWidthRatio = 2 / kRealRinkWidth
+        boardWidthRatio = 1.5 / kRealRinkWidth
         
 //        var creaseWidthRatio: CGFloat = 8 / kRealRinkWidth
         
-        let minorLineWidthRatio: CGFloat = 1.5 / kRealRinkWidth
+        let minorLineWidthRatio: CGFloat = 1.0 / kRealRinkWidth
         let majorLineWidthRatio: CGFloat = 2.0 / kRealRinkWidth
         minorLineWidth = rinkViewWidth * minorLineWidthRatio
         majorLineWidth = rinkViewWidth * majorLineWidthRatio
@@ -117,7 +118,7 @@ class RinkView: UIView {
         let circleSizeRatio: CGFloat = 30 / kRealRinkWidth
         circleWidth = rinkViewWidth * circleSizeRatio
         
-        let dotSizeRatio: CGFloat = 2 / kRealRinkWidth
+        let dotSizeRatio: CGFloat = 2.5 / kRealRinkWidth
         dotWidth = rinkViewWidth * dotSizeRatio
         
         let centerDotSizeRatio: CGFloat = 1.5 / kRealRinkWidth
@@ -136,27 +137,11 @@ class RinkView: UIView {
         // Give the rink it's corners and scaled border
         rinkView.layer.cornerRadius = rinkView.bounds.width * rinkCornerRatio
         rinkView.layer.borderWidth = rinkView.bounds.width * boardWidthRatio
-        
-        // Faceoff Circle radius
-        for circle in faceoffCircles {
-            circle.layer.cornerRadius = circleWidth / 2
-            circle.layer.borderWidth = minorLineWidth
-        }
-        centerIceCircle.layer.borderColor = UIColor.blue.cgColor
-        
-        // Dot radius
-        for dot in faceoffCircleDots {
-            dot.layer.cornerRadius = dotWidth / 2
-        }
-        for dot in neutralZoneDots {
-            dot.layer.cornerRadius = dotWidth / 2
-        }
-        centerIceDot.layer.cornerRadius = centerDotWidth / 2
     }
     
     func drawRink() {
         // Draw the base rink with border for bords
-        rinkView.backgroundColor = UIColor(red:0.85, green:0.91, blue:0.95, alpha:1.00)
+        rinkView.backgroundColor = iceColor
         rinkView.translatesAutoresizingMaskIntoConstraints = false
         rinkView.layer.borderColor = UIColor.black  .cgColor
         rinkView.clipsToBounds = true
@@ -169,6 +154,7 @@ class RinkView: UIView {
             make.bottom.equalTo(0)
             make.width.equalToSuperview()
         }
+        
         
         // Add the two goal lines
         homeGoalLine.backgroundColor = .red
@@ -190,6 +176,7 @@ class RinkView: UIView {
             make.width.equalTo(minorLineWidth)
             make.centerX.equalTo(self.snp.right).offset(-goalLineOffset)
         }
+        
         
         // Add the blue lines and red line
         homeBlueLine.backgroundColor = .blue
@@ -222,11 +209,16 @@ class RinkView: UIView {
         }
         centerIceLine.layer.zPosition = 100
         
-        // Add all of the faceoff circles, corners handled in layoutSubviews
+        
+        // Add all of the faceoff circles, lines, and dots
         for circle in faceoffCircles {
-            circle.backgroundColor = .clear
+            circle.backgroundColor = iceColor
             circle.layer.borderColor = UIColor.red.cgColor
             circle.translatesAutoresizingMaskIntoConstraints = false
+            
+            circle.layer.cornerRadius = circleWidth / 2
+            circle.layer.borderWidth = minorLineWidth
+            
             rinkView.addSubview(circle)
         }
         
@@ -263,6 +255,52 @@ class RinkView: UIView {
             make.width.equalTo(circleWidth)
             make.center.equalToSuperview()
         }
+        centerIceCircle.layer.borderColor = UIColor.blue.cgColor
+        
+        
+        // Add the dashes to the circles
+        for index in 0...3 {
+            let leftLine = UIView()
+            let rightLine = UIView()
+            let lines: [UIView] = [leftLine, rightLine]
+            
+            for line in lines {
+                line.backgroundColor = .red
+                line.translatesAutoresizingMaskIntoConstraints = false
+                faceoffCircles[index].addSubview(line)
+            }
+            
+            leftLine.snp.makeConstraints({ (make) in
+                make.height.equalToSuperview().multipliedBy(1.2)
+                make.width.equalTo(minorLineWidth)
+                make.centerX.equalToSuperview().offset(-5)
+                make.centerY.equalToSuperview()
+            })
+            
+            rightLine.snp.makeConstraints({ (make) in
+                make.height.equalToSuperview().multipliedBy(1.2)
+                make.width.equalTo(minorLineWidth)
+                make.centerX.equalToSuperview().offset(5)
+                make.centerY.equalToSuperview()
+            })
+        }
+        
+        // Mask it with a view, I was lazy here and couldnt get a proper mask later to work
+        for index in 0...3 {
+            let v = UIView()
+            v.backgroundColor = iceColor
+            v.translatesAutoresizingMaskIntoConstraints = false
+            faceoffCircles[index].addSubview(v)
+            
+            v.snp.makeConstraints({ (make) in
+                make.top.equalToSuperview()
+                make.left.equalToSuperview()
+                make.right.equalToSuperview()
+                make.bottom.equalToSuperview()
+            })
+            
+            v.layer.cornerRadius = circleWidth / 2
+        }
         
         // Add the faceoff dots to the circles
         // go to index of 3 to skip center ice
@@ -276,9 +314,12 @@ class RinkView: UIView {
                 make.width.equalTo(dotWidth)
                 make.height.equalTo(dotWidth)
             }
+            
+            faceoffCircleDots[index].layer.cornerRadius = dotWidth / 2
         }
         
-        // Add cener ice dot
+        
+        // Add center ice dot
         centerIceDot.backgroundColor = .blue
         centerIceDot.translatesAutoresizingMaskIntoConstraints = false
         rinkView.addSubview(centerIceDot)
@@ -289,7 +330,10 @@ class RinkView: UIView {
             make.center.equalToSuperview()
         }
         centerIceDot.layer.zPosition = 101
+        centerIceDot.layer.cornerRadius = centerDotWidth / 2
         
+        
+        // Add the neutral zone dots
         for dot in neutralZoneDots {
             dot.backgroundColor = .red
             dot.translatesAutoresizingMaskIntoConstraints = false
@@ -322,6 +366,10 @@ class RinkView: UIView {
             make.width.equalTo(dotWidth)
             make.centerX.equalTo(awayBlueLine.snp.left).offset(-neutralDotOffset)
             make.centerY.equalTo(homeBottomCircleDot)
+        }
+        
+        for dot in neutralZoneDots {
+            dot.layer.cornerRadius = dotWidth / 2
         }
         
         
