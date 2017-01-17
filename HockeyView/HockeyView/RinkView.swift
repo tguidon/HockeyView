@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 
+@IBDesignable
 class RinkView: UIView {
     
     // UI
@@ -107,6 +108,10 @@ class RinkView: UIView {
         // need constants set up before you can draw
         setupConstants()
         drawRink()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
     
     override func layoutSubviews() {
