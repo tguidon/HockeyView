@@ -54,6 +54,7 @@ class RinkView: UIView {
     var faceoffCircles: [UIView] = []
     var faceoffCircleDots: [UIView] = []
     var neutralZoneDots: [UIView] = []
+    var creases: [UIView] = []
     
     // VARS
     
@@ -92,6 +93,7 @@ class RinkView: UIView {
         faceoffCircles = [homeTopCircle, homeBottomCircle, awayTopCircle, awayBottomCircle, centerIceCircle]
         faceoffCircleDots = [homeTopCircleDot, homeBottomCircleDot, awayTopCircleDot, awayBottomCircleDot]
         neutralZoneDots = [homeTopNeutralDot, homeBottomNeutralDot, awayTopNeutralDot, awayBottomNeutralDot]
+        creases = [homeCrease, awayCrease]
         
         self.backgroundColor = .clear
         
@@ -189,35 +191,30 @@ class RinkView: UIView {
             
             rinkView.addSubview(circle)
         }
-        
         homeTopCircle.snp.makeConstraints { (make) in
             make.height.equalTo(circleWidth)
             make.width.equalTo(circleWidth)
             make.centerX.equalTo(homeGoalLine.snp.right).offset(faceoffHorizontalOffset)
             make.centerY.equalTo(self.snp.top).offset(faceoffVerticalOffset)
         }
-        
         homeBottomCircle.snp.makeConstraints { (make) in
             make.height.equalTo(circleWidth)
             make.width.equalTo(circleWidth)
             make.centerX.equalTo(homeGoalLine.snp.right).offset(faceoffHorizontalOffset)
             make.centerY.equalTo(self.snp.bottom).offset(-faceoffVerticalOffset)
         }
-        
         awayTopCircle.snp.makeConstraints { (make) in
             make.height.equalTo(circleWidth)
             make.width.equalTo(circleWidth)
             make.centerX.equalTo(awayGoalLine.snp.left).offset(-faceoffHorizontalOffset)
             make.centerY.equalTo(self.snp.top).offset(faceoffVerticalOffset)
         }
-        
         awayBottomCircle.snp.makeConstraints { (make) in
             make.height.equalTo(circleWidth)
             make.width.equalTo(circleWidth)
             make.centerX.equalTo(awayGoalLine.snp.left).offset(-faceoffHorizontalOffset)
             make.centerY.equalTo(self.snp.bottom).offset(-faceoffVerticalOffset)
         }
-        
         centerIceCircle.snp.makeConstraints { (make) in
             make.height.equalTo(circleWidth)
             make.width.equalTo(circleWidth)
@@ -231,20 +228,17 @@ class RinkView: UIView {
             let leftLine = UIView()
             let rightLine = UIView()
             let lines: [UIView] = [leftLine, rightLine]
-            
             for line in lines {
                 line.backgroundColor = .red
                 line.translatesAutoresizingMaskIntoConstraints = false
                 faceoffCircles[index].addSubview(line)
             }
-            
             leftLine.snp.makeConstraints({ (make) in
                 make.height.equalToSuperview().multipliedBy(1.2)
                 make.width.equalTo(minorLineWidth)
                 make.centerX.equalToSuperview().offset(-5)
                 make.centerY.equalToSuperview()
             })
-            
             rightLine.snp.makeConstraints({ (make) in
                 make.height.equalToSuperview().multipliedBy(1.2)
                 make.width.equalTo(minorLineWidth)
@@ -266,7 +260,6 @@ class RinkView: UIView {
                 make.right.equalToSuperview()
                 make.bottom.equalToSuperview()
             })
-            
             v.layer.cornerRadius = circleWidth / 2
         }
         
@@ -282,7 +275,6 @@ class RinkView: UIView {
                 make.width.equalTo(dotWidth)
                 make.height.equalTo(dotWidth)
             }
-            
             faceoffCircleDots[index].layer.cornerRadius = dotWidth / 2
         }
         
@@ -291,7 +283,6 @@ class RinkView: UIView {
         centerIceDot.backgroundColor = .blue
         centerIceDot.translatesAutoresizingMaskIntoConstraints = false
         rinkView.addSubview(centerIceDot)
-        
         centerIceDot.snp.makeConstraints { (make) in
             make.height.equalTo(centerDotWidth)
             make.width.equalTo(centerDotWidth)
@@ -307,38 +298,82 @@ class RinkView: UIView {
             dot.translatesAutoresizingMaskIntoConstraints = false
             rinkView.addSubview(dot)
         }
-        
         homeTopNeutralDot.snp.makeConstraints { (make) in
             make.height.equalTo(dotWidth)
             make.width.equalTo(dotWidth)
             make.centerX.equalTo(homeBlueLine.snp.right).offset(neutralDotOffset)
             make.centerY.equalTo(homeTopCircleDot)
         }
-        
         homeBottomNeutralDot.snp.makeConstraints { (make) in
             make.height.equalTo(dotWidth)
             make.width.equalTo(dotWidth)
             make.centerX.equalTo(homeBlueLine.snp.right).offset(neutralDotOffset)
             make.centerY.equalTo(homeBottomCircleDot)
         }
-        
         awayTopNeutralDot.snp.makeConstraints { (make) in
             make.height.equalTo(dotWidth)
             make.width.equalTo(dotWidth)
             make.centerX.equalTo(awayBlueLine.snp.left).offset(-neutralDotOffset)
             make.centerY.equalTo(homeTopCircleDot)
         }
-        
         awayBottomNeutralDot.snp.makeConstraints { (make) in
             make.height.equalTo(dotWidth)
             make.width.equalTo(dotWidth)
             make.centerX.equalTo(awayBlueLine.snp.left).offset(-neutralDotOffset)
             make.centerY.equalTo(homeBottomCircleDot)
         }
-        
         for dot in neutralZoneDots {
             dot.layer.cornerRadius = dotWidth / 2
         }
+        
+        // Add the two goal creases
+        for crease in creases {
+            crease.backgroundColor = UIColor.clear
+            crease.translatesAutoresizingMaskIntoConstraints = false
+            rinkView.addSubview(crease)
+        }
+        homeCrease.snp.makeConstraints { (make) in
+            make.height.equalTo(creaseHeight)
+            make.width.equalTo(creaseWidth)
+            make.centerY.equalToSuperview()
+            make.left.equalTo(homeGoalLine.snp.right).offset(-minorLineWidth * 0.5)
+        }
+        awayCrease.snp.makeConstraints { (make) in
+            make.height.equalTo(creaseHeight)
+            make.width.equalTo(creaseWidth)
+            make.centerY.equalToSuperview()
+            make.right.equalTo(awayGoalLine.snp.left).offset(minorLineWidth * 0.5)
+        }
+        
+        // Bezier path to get that curve on the crease
+        let homeGoalShapeLayer = CAShapeLayer()
+        let awayGoalShapeLayer = CAShapeLayer()
+        let goalShapeLayers: [CAShapeLayer] = [homeGoalShapeLayer, awayGoalShapeLayer]
+        
+        for goal in goalShapeLayers {
+            goal.path = returnGoalBezierPath().cgPath
+            goal.strokeColor = UIColor.red.cgColor
+            goal.fillColor = UIColor.blue.withAlphaComponent(0.2).cgColor
+            goal.position = CGPoint(x: 0, y: 0)
+            goal.lineWidth = minorLineWidth * 0.5
+        }
+        
+        homeCrease.layer.addSublayer(homeGoalShapeLayer)
+        awayCrease.layer.addSublayer(awayGoalShapeLayer)
+        awayCrease.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
+    }
+    
+    func returnGoalBezierPath() -> UIBezierPath {
+        let goalPath = UIBezierPath()
+        goalPath.move(to: CGPoint(x: 0, y: 0))
+        goalPath.addLine(to: CGPoint(x: creaseWidth * (2/3), y: 0))
+        goalPath.addCurve(to: CGPoint(x: creaseWidth, y: creaseHeight / 2), controlPoint1: CGPoint(x: creaseWidth * (2/3), y: 0), controlPoint2: CGPoint(x: creaseWidth, y: creaseHeight * (1/4)))
+        goalPath.addCurve(to: CGPoint(x: creaseWidth * (2/3), y: creaseHeight), controlPoint1: CGPoint(x: creaseWidth, y: creaseHeight * (3/4)), controlPoint2: CGPoint(x: creaseWidth * (2/3), y: creaseHeight))
+        goalPath.addCurve(to: CGPoint(x: 0, y: creaseHeight), controlPoint1: CGPoint(x: creaseWidth / 2, y: creaseHeight), controlPoint2: CGPoint(x: 0, y: creaseHeight))
+        goalPath.addLine(to: CGPoint(x: 0, y: 0))
+        goalPath.close()
+        
+        return goalPath
     }
     
     func setupConstants() {
@@ -375,7 +410,7 @@ class RinkView: UIView {
         faceoffHorizontalOffset = rinkViewWidth * faceoffCircleRatio
         faceoffVerticalOffset = (rinkViewHeight * faceOffGapRatio) / 2
         
-        let creaseWidthRatio: CGFloat = 4 / kRealRinkWidth
+        let creaseWidthRatio: CGFloat = 6 / kRealRinkWidth
         let creaseHeightRatio: CGFloat = 8 / kRealRinkHeight
         creaseWidth = rinkViewWidth * creaseWidthRatio
         creaseHeight = rinkViewHeight * creaseHeightRatio
