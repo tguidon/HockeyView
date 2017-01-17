@@ -420,4 +420,31 @@ class RinkView: UIView {
         creaseWidth = rinkViewWidth * creaseWidthRatio
         creaseHeight = rinkViewHeight * creaseHeightRatio
     }
+    
+    // Class functions for updating
+    func setRinkRedTo(_ red: UIColor) {
+        rinkRed = red
+        drawRink()
+    }
+    
+    func setRinkBlueTo(_ blue: UIColor) {
+        rinkBlue = blue
+        drawRink()
+    }
+    
+    func setRinkBlackTo(_ black: UIColor) {
+        rinkBlack = black
+        drawRink()
+    }
+    
+    func setIceColorTo(_ color: UIColor) {
+        iceColor = color
+        drawRink()
+    }
+    
+    
+    
+    
+    
+    
 }
